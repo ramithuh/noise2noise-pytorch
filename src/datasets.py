@@ -14,7 +14,7 @@ import numpy as np
 import random
 from string import ascii_letters
 from PIL import Image, ImageFont, ImageDraw
-import OpenEXR
+# import OpenEXR
 
 from matplotlib import rcParams
 rcParams['font.family'] = 'serif'
@@ -125,9 +125,15 @@ class NoisyDataset(AbstractDataset):
         # it is data dependent, meaning that adding sampled valued from a Poisson
         # will change the image intensity...
         if self.noise_type == 'poisson':
-            noise = np.random.poisson(img)
-            noise_img = img + noise
-            noise_img = 255 * (noise_img / np.amax(noise_img))
+            # noise = np.random.poisson(img)
+            # noise_img = img + noise
+            # noise_img = 255 * (noise_img / np.amax(noise_img))
+
+            photon_count = self.noise_param
+
+            noise_img = np.random.poisson(np.array(img) * photon_count) / photon_count
+
+
 
         # Normal distribution (default)
         else:

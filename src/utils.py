@@ -9,9 +9,9 @@ import os
 import numpy as np
 from math import log10
 from datetime import datetime
-import OpenEXR
+# import OpenEXR
 from PIL import Image
-import Imath
+# import Imath
 
 from matplotlib import rcParams
 rcParams['font.family'] = 'serif'

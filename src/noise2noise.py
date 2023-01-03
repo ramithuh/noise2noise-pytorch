@@ -232,7 +232,7 @@ class Noise2Noise(object):
 
         self._print_params()
         num_batches = len(train_loader)
-        assert num_batches % self.p.report_interval == 0, 'Report interval must divide total number of batches'
+        #assert num_batches % self.p.report_interval == 0, 'Report interval must divide total number of batches'
 
         # Dictionaries of tracked stats
         stats = {'noise_type': self.p.noise_type,
